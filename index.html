@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>Swipe between maps</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+ 
+<style>
+body {
+overflow: hidden;
+}
+ 
+body * {
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+ 
+.map {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+}
+</style>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
+ 
+<div id='before' class='map'></div>
+<div id='after' class='map'></div>
+<script>
+alert ("What you are going to see is a comparison in the future 2100 of the climate change impacts,\n \n                       without adaptation options vs a future including an adaptation policy, \n \n It includes levees and urban environmental management plan, people living in palafitos, \n \n                                       Use the improved are as a touristic attraction \n \n                      LEFT: WITHOUT ADAPTATION     and      RIGHT: WITH ADAPTATION")
+mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZWxhMTMiLCJhIjoiY2p4aW1oa3pyMDNrajN4cGdxdGZnOHdnaiJ9.24f_nYg_armjcH4Pfn60NQ';
+var beforeMap = new mapboxgl.Map({
+container: 'before',
+style: 'mapbox://styles/angela13/cjxt77rdr82rk1cnrg9os6a5e',
+center: [-10.802, 6.327],
+zoom: 15.16
+});
+ 
+var afterMap = new mapboxgl.Map({
+container: 'after',
+style: 'mapbox://styles/angela13/cjxxwa2s50a9h1domwm8edqg4',
+center: [-10.802, 6.327],
+zoom: 15.16
+});
+ 
+var map = new mapboxgl.Compare(beforeMap, afterMap, {
+// Set this to enable comparing two maps by mouse movement:
+// mousemove: true
+});
+</script>
+ 
+</body>
+</html>
